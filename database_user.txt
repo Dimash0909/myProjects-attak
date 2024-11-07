@@ -1,0 +1,7 @@
+role: admin
+name: TED_zver
+password: test123
+
+role: reads & writes
+name: dimash
+password: test123
