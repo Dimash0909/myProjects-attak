@@ -79,6 +79,11 @@ button{
   display: block;
   padding: 10px 16px;
   letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease; /* Smooth transition */
+}
+button:active {
+  background: #E5C883; /* Color when button is pressed */
 }
 .error{
   color: #ff0099;
