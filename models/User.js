@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({  // defines the structure
 
 // fire a function after doc saved to db
 userSchema.post('save', function (doc, next) { // post here is not related to POST request, the function operates after 'save'
-    console.log('new user was created & saved', doc)
+    print('new user was created & saved', doc)
     next()
 }) 
 

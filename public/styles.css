@@ -40,10 +40,25 @@ nav li a{
   padding: 10px 16px;
   letter-spacing: 2px;
 }
-.btn{
+.btn1{
   border-radius: 36px;
-  background: #FEE996;
+  transition: background 0.4s ease; /* Smooth transition */
 }
+
+.btn2{
+  border-radius: 36px;
+  background: #F8D996;
+  transition: background 0.4s ease; /* Smooth transition */
+}
+
+.btn1:hover, .btn2:hover {
+  background: #f5d692; /* Color when button is hovered */
+}
+
+.btn1:active, .btn2:active {
+  background: #F8D965; /* Color when button is hovered */
+}
+
 form h2{
   font-size: 2.4em;
   font-weight: 900;
@@ -80,11 +95,8 @@ button{
   padding: 10px 16px;
   letter-spacing: 2px;
   cursor: pointer;
-  transition: background 0.2s ease; /* Smooth transition */
 }
-button:active {
-  background: #E5C883; /* Color when button is pressed */
-}
+
 .error{
   color: #ff0099;
   margin: 10px 2px;

@@ -1,9 +1,10 @@
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
+const print = require('../utils/utilFuncs')
 
 // handle errors
 const handleErrors = (err) => {
-    console.log(err.message, err.code)
+    print(err.message, err.code)
     let errors = { email: '', password: '' }
 
     // incorrect email
@@ -19,6 +20,7 @@ const handleErrors = (err) => {
     // duplicate error code
     if(err.code === 11000) {
         errors.email = 'that email is already registered'
+        return errors
     }
 
     // valdation errors
@@ -30,9 +32,10 @@ const handleErrors = (err) => {
     return errors
 }
 
+// create json web token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-    return jwt.sign({ id }, 'wooh secret wordy', {
+    return jwt.sign({ id }, process.env.JWTsecretPrivateKey, {
         expiresIn: maxAge
     })
 }
