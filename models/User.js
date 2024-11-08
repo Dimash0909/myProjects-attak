@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { isEmail } = require('validator')
 const print = require('../utils/utilFuncs')
-
+const bcryptjs = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({  // defines the structure
     email: {
@@ -25,8 +25,10 @@ userSchema.post('save', function (doc, next) { // post here is not related to PO
 }) 
 
 // fire a function before doc saved to db
-userSchema.pre('save', function (next) {
+userSchema.pre('save', async function (next) {
     print('user about to be created & saved', this)
+    const salt = await bcryptjs.genSalt()
+    this.password = await bcryptjs.hash(this.password, salt)
     next()
 })
 
