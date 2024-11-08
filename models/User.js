@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 const { isEmail } = require('validator')
+const print = require('../utils/utilFuncs')
 
-const print = (...vals) => {
-    console.log(...vals)
-} 
 
 const userSchema = new mongoose.Schema({  // defines the structure
     email: {
